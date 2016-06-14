@@ -16,5 +16,7 @@ exports.up = function(knex, Promise) {
 };
 
 exports.down = function(knex, Promise) {
-
+  return new Promise.all([
+    knex.schema.dropTable('challenges')
+  ])
 };
