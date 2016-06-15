@@ -12,42 +12,11 @@ import {
   View
 } from 'react-native';
 
-const FBSDK = require('react-native-fbsdk');
-const {
-  LoginButton,
-  AccessToken
-} = FBSDK;
+import Home from './pages/Home'
 
-class Login extends Component {
-  render() {
-    return (
-      <View>
-        <LoginButton
-          publishPermissions={["publish_actions"]}
-          onLoginFinished={
-            (error, result) => {
-              if (error) {
-                alert("login has error: " + result.error);
-              } else if (result.isCancelled) {
-                alert("login is cancelled.");
-              } else {
-                AccessToken.getCurrentAccessToken().then(
-                  (data) => {
-                    // alert(data.accessToken.toString())
-                    this.props.updateAuth();
-                  }
-                )
-                .catch((err) => {
-                  alert(err);
-                })
-              }
-            }
-          }
-          onLogoutFinished={() => alert("logout.")}/>
-      </View>
-    )
-  }
-}
+
+
+
 
 class snc extends Component {
   constructor() {
@@ -65,10 +34,8 @@ class snc extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Login updateAuth={this.updateAuth}></Login>
+        <Home></Home>
+
       </View>
     );
   }
