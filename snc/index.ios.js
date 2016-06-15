@@ -7,15 +7,15 @@
 import React, { Component } from 'react';
 import {
   AppRegistry,
+  Navigator,
   StyleSheet,
   Text,
   View
 } from 'react-native';
 
-import Home from './pages/Home'
-
-
-
+import Home from './pages/Home';
+import First from './pages/First';
+import Second from './pages/Second';
 
 
 class snc extends Component {
@@ -31,12 +31,24 @@ class snc extends Component {
     this.setState({ fbAuth: true });
   }
 
+  navigatorRenderScene(route, navigator) {
+    _navigator = navigator;
+    console.log(route);
+    switch (route.id) {
+      case 'home':
+        console.log('first!');
+        return <First navigator={navigator} title='home' />
+
+      case 'challenges':
+        return <Second navigator={navigator} title='challenges' />
+    }
+  }
+
   render() {
     return (
-      <View style={styles.container}>
-        <Home></Home>
-
-      </View>
+      <Navigator
+        initialRoute={{ id: 'home' }}
+        renderScene={this.navigatorRenderScene}/>
     );
   }
 }
