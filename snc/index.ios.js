@@ -12,6 +12,7 @@ import {
   Text,
   View
 } from 'react-native';
+import { Router, Scene } from 'react-native-router-flux';
 
 import Home from './pages/Home';
 import Login from './pages/Login';
@@ -31,27 +32,15 @@ class snc extends Component {
     this.setState({ fbAuth: true });
   }
 
-  navigatorRenderScene(route, navigator) {
-    _navigator = navigator;
-
-    switch (route.id) {
-      case 'home':
-        console.log('first!');
-        return <Home navigator={navigator} title='home' />
-
-      case 'challenges':
-        return <Second navigator={navigator} title='challenges' />
-
-      case 'login':
-        return <Login navigator={navigator} title='login' updateAuth={this.updateAuth} />
-    }
-  }
 
   render() {
     return (
-      <Navigator
-        initialRoute={{ id: 'home' }}
-        renderScene={this.navigatorRenderScene}/>
+      <Router>
+        <Scene key="root">
+          <Scene key="home" component={Home} title="Home" initial={true} />
+          <Scene key="login" component={Login} title="login" />
+        </Scene>
+      </Router>
     );
   }
 }

@@ -5,6 +5,7 @@ import {
   TouchableHighlight,
   View
 } from 'react-native';
+import { Actions } from 'react-native-router-flux';
 
 const styles = StyleSheet.create({
   container: {
@@ -26,9 +27,15 @@ const styles = StyleSheet.create({
 });
 
 class Home extends Component{
-  navSecond() {
+  login() {
     this.props.navigator.push({
       id: 'login'
+    })
+  }
+
+  challenges() {
+    this.props.navigator.push({
+      id: 'challenges'
     })
   }
 
@@ -39,11 +46,7 @@ class Home extends Component{
         <Text>
           Hello from First screen
         </Text>
-        <TouchableHighlight onPress={this.navSecond.bind(this)}>
-          <Text>
-            Login
-          </Text>
-        </TouchableHighlight>
+        <Text onPress={Actions.login}>GO TO LOGIN!!!</Text>
       </View>
     );
   }
