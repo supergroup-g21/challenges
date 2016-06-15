@@ -14,7 +14,7 @@ import {
 } from 'react-native';
 
 import Home from './pages/Home';
-import First from './pages/First';
+import Login from './pages/Login';
 import Second from './pages/Second';
 
 
@@ -33,14 +33,17 @@ class snc extends Component {
 
   navigatorRenderScene(route, navigator) {
     _navigator = navigator;
-    console.log(route);
+
     switch (route.id) {
       case 'home':
         console.log('first!');
-        return <First navigator={navigator} title='home' />
+        return <Home navigator={navigator} title='home' />
 
       case 'challenges':
         return <Second navigator={navigator} title='challenges' />
+
+      case 'login':
+        return <Login navigator={navigator} title='login' updateAuth={this.updateAuth} />
     }
   }
 

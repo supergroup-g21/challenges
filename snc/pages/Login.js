@@ -5,35 +5,26 @@ import {
   View
 } from 'react-native';
 
+import Login from '../components/FBlogin'
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+  }
 });
 
-class Second extends Component{
+class Home extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>
-          Hello from Second screen
-        </Text>
+        <Text>Welcome to Seattle N? Challenges</Text>
+        <Login updateAuth={this.updateAuth}></Login>
       </View>
-    );
+    )
   }
-};
+}
 
-export default Second;
+export default Home;
