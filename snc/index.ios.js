@@ -18,8 +18,8 @@ const {
   AccessToken
 } = FBSDK;
 
-var Login = React.createClass({
-  render: function() {
+class Login extends Component {
+  render() {
     return (
       <View>
         <LoginButton
@@ -33,26 +33,42 @@ var Login = React.createClass({
               } else {
                 AccessToken.getCurrentAccessToken().then(
                   (data) => {
-                    alert(data.accessToken.toString())
+                    // alert(data.accessToken.toString())
+                    this.props.updateAuth();
                   }
                 )
+                .catch((err) => {
+                  alert(err);
+                })
               }
             }
           }
           onLogoutFinished={() => alert("logout.")}/>
       </View>
-    );
+    )
   }
-});
+}
 
 class snc extends Component {
+  constructor() {
+    super();
+    this.state = {
+      fbAuth: false
+    }
+    this.updateAuth = this.updateAuth.bind(this);
+  }
+
+  updateAuth() {
+    this.setState({ fbAuth: true });
+  }
+
   render() {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
           Welcome to React Native!
         </Text>
-        <Login></Login>
+        <Login updateAuth={this.updateAuth}></Login>
       </View>
     );
   }
