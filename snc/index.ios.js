@@ -1,10 +1,6 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
 
 import React, { Component } from 'react';
+import MapView from 'react-native-maps';
 import {
   AppRegistry,
   StyleSheet,
@@ -17,6 +13,8 @@ const {
   LoginButton,
   AccessToken
 } = FBSDK;
+
+import SimpleMap from './components/simplemap'
 
 var Login = React.createClass({
   render: function() {
@@ -52,11 +50,14 @@ class snc extends Component {
         <Text style={styles.welcome}>
           Welcome to React Native!
         </Text>
+        <SimpleMap />
         <Login></Login>
       </View>
     );
   }
 }
+
+
 
 const styles = StyleSheet.create({
   container: {
