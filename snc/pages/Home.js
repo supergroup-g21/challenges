@@ -49,6 +49,7 @@ class Home extends Component{
           Hello from First screen
         </Text>
         <Text onPress={Actions.login}>GO TO LOGIN!!!</Text>
+        <Text onPress={Actions.challenges}>challenges</Text>
         <SimpleMap />
       </View>
     );
