@@ -65,7 +65,11 @@ class SimpleMap extends Component{
             latitudeDelta: LATITUDE_DELTA,
             longitudeDelta: LONGITUDE_DELTA,
           }}
-        ></MapView>
+        >
+        <MapView.Marker
+          coordinate={this.state.b}
+        />
+        </MapView>
       </View>
     );
   }
