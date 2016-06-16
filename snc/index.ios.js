@@ -9,12 +9,12 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
-  View
+  View,
+  TextInput
 } from 'react-native';
 
 import Home from './pages/Home'
-
-
+import ChallengeForm from './components/ChallengeForm'
 
 
 
@@ -22,7 +22,7 @@ class snc extends Component {
   constructor() {
     super();
     this.state = {
-      fbAuth: false
+      fbAuth: false,
     }
     this.updateAuth = this.updateAuth.bind(this);
   }
@@ -34,8 +34,9 @@ class snc extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Home></Home>
 
+        <Home></Home>
+        <ChallengeForm></ChallengeForm>
       </View>
     );
   }
