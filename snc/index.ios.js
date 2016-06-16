@@ -13,7 +13,8 @@ import { Router, Scene } from 'react-native-router-flux';
 
 import Home from './pages/Home';
 import Login from './pages/Login';
-import Challenges from './pages/Challenges';
+import newChallenge from './pages/newChallenge';
+import Dashboard from './pages/Dashboard';
 
 class snc extends Component {
   constructor() {
@@ -35,7 +36,8 @@ class snc extends Component {
         <Scene key="root">
           <Scene key="home" component={Home} title="Home" initial={true} />
           <Scene key="login" component={Login} title="login" />
-          <Scene key="challenges" component={Challenges} title="challenges" />
+          <Scene key="dashboard" component={Dashboard} title="dashboard" />
+          <Scene key="newChallenge" component={newChallenge} title="newChallenge" />
         </Scene>
       </Router>
     );

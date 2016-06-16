@@ -13,6 +13,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
+    marginTop: 100
   },
   welcome: {
     fontSize: 20,
@@ -30,9 +31,6 @@ class Second extends Component{
   render() {
     return (
       <View style={styles.container}>
-        <Text>
-          Hello from Second screen
-        </Text>
         <ChallengeForm></ChallengeForm>
       </View>
     );
