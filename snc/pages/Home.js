@@ -14,17 +14,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#FFF'
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
+    backgroundColor: '#fcf7e8'
   },
 });
 
@@ -45,12 +35,12 @@ class Home extends Component{
     console.log('rendering?');
     return (
       <View style={styles.container}>
-        <Text>
-          Hello from First screen
+        <Text style={{fontSize: 22, fontWeight: 'bold', marginBottom: 10, textDecorationLine: 'underline', textDecorationStyle: 'double', textDecorationColor: '#16CCCF', paddingBottom: 15}}>
+          Seattle Neighborhood Challenge
         </Text>
-        <Text onPress={Actions.login}>GO TO LOGIN!!!</Text>
+        <Text onPress={Actions.login}>Login</Text>
         <Text onPress={Actions.dashboard}>Dashboard</Text>
-        <Text onPress={Actions.newChallenge}>Add challenges</Text>
+        <Text onPress={Actions.newChallenge} style={{marginBottom: 30}}>Add challenge</Text>
         <SimpleMap />
       </View>
     );
