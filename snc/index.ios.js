@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react';
 import MapView from 'react-native-maps';
 import {
@@ -28,7 +27,6 @@ class snc extends Component {
   updateAuth() {
     this.setState({ fbAuth: true });
   }
-
 
   render() {
     return (

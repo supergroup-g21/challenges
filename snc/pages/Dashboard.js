@@ -22,34 +22,29 @@ class ChallengesAttending extends Component {
   constructor() {
     super()
     this.state = {
-      challengesAttending: [
-        {
-          title: 'Challenge 1',
-          time: 'Monday at 4 fucking o clock'
-        },
-        {
-          title: 'Challenge 2',
-          time: 'Tuesday at 4 fucking o clock'
-        },
-        {
-          title: 'Challenge 3',
-          time: 'Wednesday at 4 fucking o clock'
-        }
-      ]
+      challengesAttending: []
     }
-    this.getChallenges = this.getChallenges.bind(this);
   }
 
-  getChallenges() {
-    // make call to api
+  componentWillMount() {
+    fetch('http://localhost:3000/challenges', { method: 'GET' })
+      .then(response => {
+        this.setState({
+          challengesAttending: JSON.parse(response.text())
+        })
+      })
+      .catch((err) => {
+        console.log(err);
+      })
   }
 
   render() {
 
     var allChallenges = this.state.challengesAttending.map(challenge => {
-        return <View style={styles.challengeListing}>
+        return <View style={styles.challengeListing} key={challenge.id}>
           <Text>{challenge.title}</Text>
-          <Text>{challenge.time}</Text>
+          <Text>{challenge.description}</Text>
+          <Text>{challenge.start_time}</Text>
         </View>
     })
 
