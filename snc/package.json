@@ -6,8 +6,13 @@
     "start": "node node_modules/react-native/local-cli/cli.js start"
   },
   "dependencies": {
+    "google-maps-react": "^1.0.16",
     "react": "^15.1.0",
     "react-native": "0.27.2",
+    "react-native-maps": "^0.4.2",
     "react-native-fbsdk": "^0.2.1"
+  },
+  "devDependencies": {
+    "react": "^15.1.0"
   }
 }

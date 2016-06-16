@@ -1,10 +1,6 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
 
 import React, { Component } from 'react';
+import MapView from 'react-native-maps';
 import {
   AppRegistry,
   Navigator,
@@ -17,6 +13,35 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Second from './pages/Second';
 
+import SimpleMap from './components/simplemap'
+
+
+var Login = React.createClass({
+  render: function() {
+    return (
+      <View>
+        <LoginButton
+          publishPermissions={["publish_actions"]}
+          onLoginFinished={
+            (error, result) => {
+              if (error) {
+                alert("login has error: " + result.error);
+              } else if (result.isCancelled) {
+                alert("login is cancelled.");
+              } else {
+                AccessToken.getCurrentAccessToken().then(
+                  (data) => {
+                    alert(data.accessToken.toString())
+                  }
+                )
+              }
+            }
+          }
+          onLogoutFinished={() => alert("logout.")}/>
+      </View>
+    );
+  }
+});
 
 class snc extends Component {
   constructor() {
@@ -52,9 +77,18 @@ class snc extends Component {
       <Navigator
         initialRoute={{ id: 'home' }}
         renderScene={this.navigatorRenderScene}/>
+      <View style={styles.container}>
+        <Text style={styles.welcome}>
+          Welcome to React Native!
+        </Text>
+        <SimpleMap />
+        <Login></Login>
+      </View>
     );
   }
 }
+
+
 
 const styles = StyleSheet.create({
   container: {
