@@ -1,5 +1,11 @@
 exports.seed = function(knex, Promise) {
-  return Promise.all([
+
+  return knex.raw('ALTER SEQUENCE challenges_id_seq restart with 3;').then(function() {
+  return knex('challenges').del();
+
+  }).then(function() {
+    return Promise.all([
+
     knex('challenges').insert({
       id: 1,
       title: 'Magic the Gathering: The Gathering',
@@ -20,6 +26,7 @@ exports.seed = function(knex, Promise) {
       location_id: 2,
       max_users: 9,
       challenger_id: 2
-    })
-  ])
-}
+    }),
+  ]);
+})
+};
