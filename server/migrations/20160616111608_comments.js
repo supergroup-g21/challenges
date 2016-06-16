@@ -4,7 +4,7 @@ exports.up = function(knex, Promise) {
     table.increments();
     table.text('comment');
     table.integer('user_id').unsigned().references('id').inTable('users').onDelete('cascade');
-    table.ineger('challenge_id').unsigned().references('id').inTable('challenges').onDelete('cascade');
+    table.integer('challenge_id').unsigned().references('id').inTable('challenges').onDelete('cascade');
   });
 };
 

@@ -1,6 +1,6 @@
 exports.seed = function(knex, Promise) {
-  
-  return knex.('user_challenge').del().then(function() {
+
+  return knex('user_challenge').del().then(function() {
     return Promise.all([
       knex('user_challenge').insert({
         id: 1,

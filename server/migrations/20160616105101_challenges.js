@@ -9,7 +9,7 @@ exports.up = function(knex, Promise) {
     table.integer('location_id').unsigned().references('id').inTable('locations').onDelete('cascade');
     table.boolean('complete').defaultTo(false);
     table.integer('max_users');
-    table.integer('challenger_id').unsigned().references('id')inTable('users').onDelete('cascade');
+    table.integer('challenger_id').unsigned().references('id').inTable('users').onDelete('cascade');
   });
 };
 
