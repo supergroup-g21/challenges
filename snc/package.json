@@ -11,7 +11,8 @@
     "react-dom": "^15.1.0",
     "react-native": "0.27.2",
     "react-native-fbsdk": "^0.2.1",
-    "react-native-maps": "^0.4.2"
+    "react-native-maps": "^0.4.2",
+    "react-native-router-flux": "^3.30.0"
   },
   "devDependencies": {
     "react": "^15.1.0"
