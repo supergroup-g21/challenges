@@ -7,14 +7,14 @@ import {
 } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
-import SimpleMap from '../components/simplemap'
+import SimpleMap from '../components/simplemap';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: '#FFF'
   },
   welcome: {
     fontSize: 20,
@@ -49,7 +49,8 @@ class Home extends Component{
           Hello from First screen
         </Text>
         <Text onPress={Actions.login}>GO TO LOGIN!!!</Text>
-        <Text onPress={Actions.challenges}>challenges</Text>
+        <Text onPress={Actions.dashboard}>Dashboard</Text>
+        <Text onPress={Actions.newChallenge}>Add challenges</Text>
         <SimpleMap />
       </View>
     );

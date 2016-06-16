@@ -18,7 +18,9 @@ var Challenge = t.struct({
   startDate: t.Date,
   locationAddress: t.String
 });
+
 var options = {};
+
 class ChallengeForm extends Component {
   constructor() {
     super();
