@@ -5,6 +5,8 @@ import {
   View
 } from 'react-native';
 
+import ChallengeForm from '../components/ChallengeForm'
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -31,6 +33,7 @@ class Second extends Component{
         <Text>
           Hello from Second screen
         </Text>
+        <ChallengeForm></ChallengeForm>
       </View>
     );
   }
