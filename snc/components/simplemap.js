@@ -52,6 +52,7 @@ class SimpleMap extends Component{
       latitude: LATITUDE - SPACE,
       longitude: LONGITUDE - SPACE,
     },
+    markers: []
   }
 
   render() {
@@ -68,9 +69,18 @@ class SimpleMap extends Component{
             longitudeDelta: LONGITUDE_DELTA,
           }}
         >
-        <MapView.Marker
-          coordinate={this.state.b}
-        />
+        </MapView>
+        <MapView
+          region={this.state.region}
+          onRegionChange={this.onRegionChange}
+        >
+        {this.state.markers.map(marker => (
+          <MapView.Marker
+          coordinate={marker.latlng}
+          title={marker.title}
+          description={marker.description}
+          />
+        ))}
         </MapView>
       </View>
     );
