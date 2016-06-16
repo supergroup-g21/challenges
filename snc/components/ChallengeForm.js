@@ -23,28 +23,44 @@ class ChallengeForm extends Component {
   constructor() {
     super();
     this.state = {
-      value: {}
+      value: null
     }
     this.onPress = this.onPress.bind(this);
   }
   onPress() {
+    console.log('test');
     // call getValue() to get the values of the form
     var value = this.refs.form.getValue();
     if (value) { // if validation fails, value will be null
-      console.log(value); // value here is an instance of Challenge
-      //Send POST request to server here, redirect to dashboard(?)
-      // fetch('yourservergoes.here/challenges/create', {
-      //   method: 'POST',
-      //   headers: {},
-      //   body: value
-      // })
+    // value here is an instance of Challenge
+      // Send POST request to server here, redirect to dashboard(?)
+      fetch('http://localhost:3000/api/challenges', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(value)
+      }).then((response) => response.text())
+      .then((responseText) => {
+        alert(responseText);
+      })
+      .catch((error) => {
+        alert("Errorror: " + error);
+      });
     }
   }
 
   render() {
     return (
       <View>
-        <ScrollView>
+        <ScrollView
+          ref={(scrollView) => { _scrollView = scrollView; }}
+          automaticallyAdjustContentInsets={false}
+          onScroll={() => { console.log('onScroll!'); }}
+          scrollEventThrottle={200}
+          style={styles.scrollView}
+        >
           <Form
               ref="form"
               type={Challenge}
@@ -59,6 +75,9 @@ class ChallengeForm extends Component {
   }
 }
 var styles = StyleSheet.create({
+  scrollView: {
+    height: 550,
+  },
   container: {
     justifyContent: 'center',
     marginTop: 50,
