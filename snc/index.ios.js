@@ -16,33 +16,6 @@ import Second from './pages/Second';
 import SimpleMap from './components/simplemap'
 
 
-var Login = React.createClass({
-  render: function() {
-    return (
-      <View>
-        <LoginButton
-          publishPermissions={["publish_actions"]}
-          onLoginFinished={
-            (error, result) => {
-              if (error) {
-                alert("login has error: " + result.error);
-              } else if (result.isCancelled) {
-                alert("login is cancelled.");
-              } else {
-                AccessToken.getCurrentAccessToken().then(
-                  (data) => {
-                    alert(data.accessToken.toString())
-                  }
-                )
-              }
-            }
-          }
-          onLogoutFinished={() => alert("logout.")}/>
-      </View>
-    );
-  }
-});
-
 class snc extends Component {
   constructor() {
     super();
@@ -74,10 +47,10 @@ class snc extends Component {
 
   render() {
     return (
-      <Navigator
-        initialRoute={{ id: 'home' }}
-        renderScene={this.navigatorRenderScene}/>
       <View style={styles.container}>
+        <Navigator
+          initialRoute={{ id: 'home' }}
+          renderScene={this.navigatorRenderScene}/>
         <Text style={styles.welcome}>
           Welcome to React Native!
         </Text>
