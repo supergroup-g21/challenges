@@ -6,7 +6,6 @@ var knex = require('../db/knex');
 router.get('/', function(req, res, next){
   console.log('hello');
   knex('locations').select('*').then(data => {
-    console.log(data);
     res.json(data);
   })
   .catch((err) => {
