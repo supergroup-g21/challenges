@@ -44,18 +44,22 @@ var styles = StyleSheet.create({
 
 class SimpleMap extends Component{
   state = {
-    a: {
-      latitude: LATITUDE + SPACE,
-      longitude: LONGITUDE + SPACE,
-    },
-    b: {
-      latitude: LATITUDE - SPACE,
-      longitude: LONGITUDE - SPACE,
-    },
+    markers: [
+      {
+        latitude: LATITUDE + SPACE,
+        longitude: LONGITUDE + SPACE,
+      },
+      {
+        latitude: LATITUDE - SPACE,
+        longitude: LONGITUDE - SPACE,
+      },
+    ]
   }
 
   render() {
-    console.log('hi');
+    var markers = this.state.markers.map(marker => {
+      return <MapView.Marker coordinate={ marker }/>;
+    })
     return (
       <View style={styles.container}>
         <MapView
@@ -68,9 +72,7 @@ class SimpleMap extends Component{
             longitudeDelta: LONGITUDE_DELTA,
           }}
         >
-        <MapView.Marker
-          coordinate={this.state.b}
-        />
+        { markers }
         </MapView>
       </View>
     );

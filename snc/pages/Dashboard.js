@@ -27,10 +27,11 @@ class ChallengesAttending extends Component {
   }
 
   componentWillMount() {
-    fetch('http://localhost:3000/challenges', { method: 'GET' })
+    fetch('http://localhost:3000/api/challenges', { method: 'GET' })
+      .then(response => { return response.text() })
       .then(response => {
         this.setState({
-          challengesAttending: JSON.parse(response.text())
+          challengesAttending: JSON.parse(response)
         })
       })
       .catch((err) => {
