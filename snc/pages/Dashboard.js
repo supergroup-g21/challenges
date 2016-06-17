@@ -32,8 +32,8 @@ class ChallengesAttending extends Component {
     var allChallenges = this.state.challengesAttending.map(challenge => {
         return <View style={styles.challengeListing} key={challenge.id}>
           <Text style={styles.challengeTitle}>{challenge.title}</Text>
-          <Text>{challenge.description}</Text>
-          <Text>{challenge.start_time}</Text>
+          <Text style={styles.challengeDesc}>{challenge.description}</Text>
+          <Text style={styles.challengeTime}>{challenge.start_time}</Text>
         </View>
     })
 
@@ -68,14 +68,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   dashText: {
-    margin: 10,
+    marginRight: 10,
+    marginLeft: 10,
+    marginBottom: 10,
     fontSize: 14,
     textAlign: 'justify',
     color: '#031617'
   },
-  // challengeWidgetContainer: {
-  //   marginTop: 20
-  // },
   challengeListing: {
     backgroundColor: '#16CCCF',
     borderWidth: 1,
@@ -90,6 +89,16 @@ const styles = StyleSheet.create({
   challengeTitle: {
     fontSize: 16,
     fontWeight: 'bold'
+  },
+  challengeDesc: {
+    textAlign: 'justify',
+    color: '#031617',
+    fontSize: 12
+  },
+  challengeTime: {
+    textAlign: 'justify',
+    color: '#031617',
+    fontSize: 10
   }
 })
 
