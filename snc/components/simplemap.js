@@ -73,14 +73,11 @@ class SimpleMap extends Component{
   }
 
   componentWillMount() {
-    console.log('mount');
     fetch('http://localhost:3000/map', { method: 'GET'})
       .then(res => {
-        console.log(res);
         return res.text()
       })
       .then(data => {
-        console.log(data);
         this.setState({
           markers: JSON.parse(data)
         })
@@ -92,12 +89,11 @@ class SimpleMap extends Component{
 
   render() {
     var markers = this.state.markers.map(marker => {
-      console.log(marker);
       return <MapView.Marker
-      coordinate={ {
+      coordinate={{
         latitude: marker.lat,
-        longitude: marker.long}
-      }/>;
+        longitude: marker.long
+      }}/>;
     })
     return (
       <View style={styles.container}>
