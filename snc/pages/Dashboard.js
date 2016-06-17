@@ -6,18 +6,6 @@ import {
 } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
-const styles = StyleSheet.create({
-  challengeWidgetContainer: {
-    marginTop: 120
-  },
-  challengeListing: {
-    backgroundColor: '#FFF',
-    borderWidth: 1,
-    borderColor: '#CCC',
-    padding: 5
-  }
-})
-
 class ChallengesAttending extends Component {
   constructor() {
     super()
@@ -43,7 +31,7 @@ class ChallengesAttending extends Component {
 
     var allChallenges = this.state.challengesAttending.map(challenge => {
         return <View style={styles.challengeListing} key={challenge.id}>
-          <Text>{challenge.title}</Text>
+          <Text style={styles.challengeTitle}>{challenge.title}</Text>
           <Text>{challenge.description}</Text>
           <Text>{challenge.start_time}</Text>
         </View>
@@ -51,9 +39,8 @@ class ChallengesAttending extends Component {
 
     return (
       <View>
-          {allChallenges}
+        {allChallenges}
       </View>
-
     )
   }
 }
@@ -62,11 +49,48 @@ class ChallengesWidget extends Component {
 
   render() {
     return (
-      <View style={styles.challengeWidgetContainer}>
-        <ChallengesAttending></ChallengesAttending>
+      <View style={styles.container}>
+        <Text style={styles.dashText}>
+          Congrats! You are going to the following challenges you lucky devil.
+        </Text>
+        <ChallengesAttending>
+        </ChallengesAttending>
       </View>
     )
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: '#fcf7e8',
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  dashText: {
+    margin: 10,
+    fontSize: 14,
+    textAlign: 'justify',
+    color: '#031617'
+  },
+  // challengeWidgetContainer: {
+  //   marginTop: 20
+  // },
+  challengeListing: {
+    backgroundColor: '#16CCCF',
+    borderWidth: 1,
+    borderStyle: 'solid',
+    borderColor: '#F2792A',
+    padding: 10,
+    marginBottom: 3,
+    marginRight: 5,
+    marginLeft: 5,
+    textAlign: 'justify'
+  },
+  challengeTitle: {
+    fontSize: 16,
+    fontWeight: 'bold'
+  }
+})
 
 export default ChallengesWidget;

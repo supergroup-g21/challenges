@@ -33,9 +33,9 @@ class snc extends Component {
       <Router>
         <Scene key="root">
           <Scene key="home" component={Home} title="Home" initial={true} />
-          <Scene key="login" component={Login} title="login" />
-          <Scene key="dashboard" component={Dashboard} title="dashboard" />
-          <Scene key="newChallenge" component={newChallenge} title="newChallenge" />
+          <Scene key="login" component={Login} title="Login" />
+          <Scene key="dashboard" component={Dashboard} title="Dashboard" />
+          <Scene key="newChallenge" component={newChallenge} title="New Challenge" />
         </Scene>
       </Router>
     );
