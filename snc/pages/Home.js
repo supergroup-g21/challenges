@@ -16,6 +16,15 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#fcf7e8'
   },
+  menuBtn: {
+    borderStyle: 'dotted',
+    borderWidth: 1,
+    borderColor: '#F2792A',
+    borderRadius: 5,
+    backgroundColor: '#98B735',
+    color: '#fcf7e8',
+    padding: 5
+  }
 });
 
 class Home extends Component{
@@ -38,9 +47,9 @@ class Home extends Component{
         <Text style={{fontSize: 22, fontWeight: 'bold', marginBottom: 10, textDecorationLine: 'underline', textDecorationStyle: 'double', textDecorationColor: '#16CCCF', paddingBottom: 15}}>
           Seattle Neighborhood Challenge
         </Text>
-        <Text onPress={Actions.login}>Login</Text>
-        <Text onPress={Actions.dashboard}>Dashboard</Text>
-        <Text onPress={Actions.newChallenge} style={{marginBottom: 30}}>Add challenge</Text>
+        <Text onPress={Actions.login} style={styles.menuBtn}>Login</Text>
+        <Text onPress={Actions.dashboard} style={styles.menuBtn}>Dashboard</Text>
+        <Text onPress={Actions.newChallenge} style={styles.menuBtn}>Add challenge</Text>
         <SimpleMap />
       </View>
     );
