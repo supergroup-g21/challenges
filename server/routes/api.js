@@ -1,12 +1,18 @@
 var express = require('express');
 var router = express.Router();
+var knex = require('../db/knex')
 
 
 router.get('/challenges', function(req, res, next) {
-  console.log(req);
-  res.json({ message: 'Nice get!'});
-  //insert get stuff here
+  knex('challenges').select('*').then((data) => {
+    console.log(data);
+    res.json(data);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 })
+
 router.post('/challenges', function(req, res, next) {
   knex
   console.log(req.body)

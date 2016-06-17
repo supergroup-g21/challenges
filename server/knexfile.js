@@ -1,12 +1,9 @@
-// Update with your config settings.
 
 module.exports = {
 
   development: {
     client: 'pg',
-    connection: {
-      filename: 'postgres://localhost/snc'
-    },
+    connection: 'postgres://localhost/snc',
     migrations: './migrations',
     seeds: './seeds'
   },
