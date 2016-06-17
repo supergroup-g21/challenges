@@ -57,7 +57,7 @@ class SimpleMap extends Component{
         latitude: 47.611917,
         longitude: -122.325545,
         title: 'Pickup basketball for all',
-        description: 'non-professional basketball enthusiast seeking other amateur hoop lovers for a game of fundamentals heavy ball!',
+        description: 'Non-professional basketball enthusiast seeking other amateur hoop lovers for a game of fundamentals heavy ball!',
         start_time: '2016-6-25 15:00:00',
         end_time: '2016-6-25 18:00:00',
       },
