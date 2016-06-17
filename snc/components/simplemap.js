@@ -92,7 +92,7 @@ class SimpleMap extends Component{
       return <MapView.Marker
       coordinate={{
         latitude: marker.lat,
-        longitude: marker.long
+        longitude: marker.long,
       }}/>;
     })
     return (
