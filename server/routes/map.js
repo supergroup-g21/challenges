@@ -1,17 +1,18 @@
 var express = require('express');
 var router = express.Router();
-var knex = require('../db/knex')
+var knex = require('../db/knex');
 
 
-router.get('/home', function(req, res, next){
-  knex('locations').select('*').then(data) => {
+router.get('/', function(req, res, next){
+  console.log('hello');
+  knex('locations').select('*').then(data => {
     console.log(data);
     res.json(data);
   })
-  .catch((err);
-console.log(err);
+  .catch((err) => {
+    console.log(err);
   });
-})
+});
 
 // router.post('/locations', function(req, res, next) {
 //   console.log(req.body);
